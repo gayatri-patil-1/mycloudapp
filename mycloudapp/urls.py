@@ -18,7 +18,7 @@ from django.urls import path
 from django.http import HttpResponse
 
 def home(request):
-    return HttpResponse(" CI/CD Working Successfully")
+    return HttpResponse(" Automation Working Successfully")
 
 
 urlpatterns = [
