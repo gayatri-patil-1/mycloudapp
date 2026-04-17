@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-7p2uuima^^^^*jea+wd7g4*pt&57u)l*y$q#b%$syam67vhvp('
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['172.16.0.81']
+ALLOWED_HOSTS = ['3.111.244.237']
 
 
 # Application definition
@@ -76,7 +76,11 @@ WSGI_APPLICATION = 'mycloudapp.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': 'testdb',
+        'USER': 'testuser',
+        'PASSWORD': '123',
+        'HOST': '172.31.40.11',
+        'PORT': '5432'
     }
 }
 
