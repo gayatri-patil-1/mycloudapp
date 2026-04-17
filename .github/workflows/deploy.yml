@@ -1,0 +1,26 @@
+name: Django CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy to EC2 (app1)
+        uses: appleboy/ssh-action@v0.1.6
+        with:
+          host: ${{ secrets.SERVER_IP }}
+          username: ubuntu
+          key: ${{ secrets.SSH_KEY }}
+          script: |
+            echo "Connected to app1"
+            cd ~/mycloudapp
+            git pull origin main
+            source cloudvenv/bin/activate
+            pip install -r requirements.txt
+            python manage.py migrate
+            sudo systemctl restart mycloud_guni.service
